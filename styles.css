@@ -1,0 +1,91 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* Calculator Size */
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-style: solid;
+    height: 40rem;
+    width: 20rem;
+    min-height: 20rem;
+    min-width: 10rem;
+    border-radius: 7%;
+    padding: .5rem;
+}
+/* Box that will show results and calculations, takes 40% height of container */
+.topBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    box-sizing: border-box;
+    border-style: solid;
+    height: 16rem;
+    width: 20rem;
+    min-height: 10rem;
+    min-width: 10rem;
+}
+/* Result box is 70% height of topBox*/
+.resultBox{
+    padding: .2rem;
+    font-size: 2.5rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    box-sizing: border-box;
+    border-style: solid;
+    height: 11.2rem; 
+    width: 20rem;
+    min-height: 7rem;
+    min-width: 10rem;
+}
+/*calculationBox is 30% height of topBox*/
+.calculationBox{
+    padding: .2rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    box-sizing: border-box;
+    border-style: solid;
+    height: 4.8rem; 
+    width: 20rem;
+    min-height: 3rem;
+    min-width: 10rem;
+}
+/* Box that will have all of the buttons for the calculator, takes 60% height of container */
+.bottomBox{
+    display: flex;
+    justify-content: space-around;
+    flex-flow: wrap;
+    box-sizing: border-box;
+    border-style: solid;
+    height: 24rem;
+    width: 20rem;
+    min-height: 15rem;
+    min-width: 10rem;
+}
+/* buttons are 16.6% height of bottomBox & 20% width of bottomBox */
+button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 4rem;
+    width: 4rem;
+    border-radius: 1rem;
+    min-height: 2.49rem;
+    min-width: 2rem;
+
+}
+.equals{
+    width: 8.9rem;
+    min-width: 4rem;
+}
