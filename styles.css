@@ -1,91 +1,98 @@
 *{
     margin: 0;
     padding: 0;
+    color: white;
+    background-color: rgb(39, 58, 77);
 }
 body{
+    background-color: blanchedalmond;
     height: 100vh;
     width: 100vw;
     display: flex;
-    justify-content: center;
     align-items: center;
 }
 /* Calculator Size */
 .container{
+    padding: 4px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    border-style: solid;
-    height: 40rem;
-    width: 20rem;
-    min-height: 20rem;
-    min-width: 10rem;
-    border-radius: 7%;
-    padding: .5rem;
+    align-items: center;
+    justify-content: space-between;
+    height: 85%;
+    width: 25%;
+    min-height: 250px;
+    min-width: 200px;
+    max-height: 650px;
+    max-width: 325px;
+    border-radius: 20px;
 }
-/* Box that will show results and calculations, takes 40% height of container */
+/* Box that will show results and calculations, takes 40%max-height of container */
 .topBox{
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-between;
     box-sizing: border-box;
-    border-style: solid;
-    height: 16rem;
-    width: 20rem;
-    min-height: 10rem;
-    min-width: 10rem;
+    height: 40%;
+    width: 95%;    
 }
 /* Result box is 70% height of topBox*/
 .resultBox{
-    padding: .2rem;
-    font-size: 2.5rem;
     display: flex;
-    justify-content: flex-end;
+    flex-direction: row-reverse;
     align-items: center;
     box-sizing: border-box;
-    border-style: solid;
-    height: 11.2rem; 
-    width: 20rem;
-    min-height: 7rem;
-    min-width: 10rem;
+    height: 70%;
+    width: 99%;
+    font-size: 3.5rem;
+    overflow: auto;
 }
 /*calculationBox is 30% height of topBox*/
 .calculationBox{
-    padding: .2rem;
     display: flex;
-    justify-content: flex-end;
-    align-items: center;
+    flex-direction: row-reverse;
     box-sizing: border-box;
-    border-style: solid;
-    height: 4.8rem; 
-    width: 20rem;
-    min-height: 3rem;
-    min-width: 10rem;
+    height: 30%;
+    width: 99%;
+    overflow: auto;
 }
-/* Box that will have all of the buttons for the calculator, takes 60% height of container */
+/* wrapper for calculations, needed to make overflow work*/
+.calc-wrapper{
+    display: flex;
+    font-size: 1rem;
+}
+/* Targets calculation numbers*/
+.calc-wrapper > div{
+    color: rgb(138, 136, 136);
+}
+/* Box that will have all of the buttons for the calculator, takes 60%max-height of container */
 .bottomBox{
     display: flex;
-    justify-content: space-around;
-    flex-flow: wrap;
+    flex-wrap: wrap;
+    justify-content: space-between;
     box-sizing: border-box;
-    border-style: solid;
-    height: 24rem;
-    width: 20rem;
-    min-height: 15rem;
-    min-width: 10rem;
+    height: 60%;
+    width: 95%;    
+    border-style: none;
 }
-/* buttons are 16.6% height of bottomBox & 20% width of bottomBox */
+/* Calculator buttons */
 button{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 4rem;
-    width: 4rem;
-    border-radius: 1rem;
-    min-height: 2.49rem;
-    min-width: 2rem;
-
+    border-style: none;
+    outline: none;
+    border-radius: 15px;
+    height: 18%;
+    width: 22%;
+    box-shadow: 0px -1px 3px rgb(139, 138, 138), 0px 3px 5px rgb(41, 41, 41);
 }
+/* equals button is bigger than the rest of the buttons and a diff color*/
 .equals{
-    width: 8.9rem;
-    min-width: 4rem;
+    border-radius: 10px;
+    width: 48%;
+    background-color: rgb(250, 126, 24);
+    color: white;
+}
+/*operator, percent, and clear buttons have a different style*/
+.multiply, .subtract, .add, .divide, .percent, .AC, .delete{
+    color:rgb(250, 126, 24);
 }

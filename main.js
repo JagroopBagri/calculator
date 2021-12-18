@@ -64,3 +64,7 @@ function operate(operator, num1, num2){
         return divide(num1, num2)
     }
 }
+const resultBox = document.querySelector('.resultBox');
+//const result = document.createElement('div');
+//result.textContent = '853758';
+//esultBox.appendChild(result);
