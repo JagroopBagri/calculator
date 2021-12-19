@@ -76,7 +76,7 @@ function operate(operator, num1, num2){
 // Result Box with result content and final result
 const resultBox = document.querySelector('.resultBox');
 const resultContent = document.createElement('div');
-let result = '';
+let result = null;
 resultContent.textContent = result;
 resultBox.appendChild(resultContent);
 // Calculation Box with Calculation content and calculation
@@ -93,6 +93,9 @@ let num2 = 0;
 let pressed = false;
 // Operator value
 let opValue;
+// Is percent button clicked value
+let percentClicked1 = false;
+let percentClicked2 = false;
 // Array of buttons on Calculator
 const calcBtn = document.querySelectorAll('.calcbtn');
 // Event listener for each button on calculator
@@ -116,7 +119,7 @@ calcBtn.forEach(function(btn){
         }
         // Get operator
         else if((btn.value === '/' || btn.value === 'x' || btn.value === '+' || btn.value === '-') && (pressed === false)){
-            if(Number(result) !== 0){
+            if(result !== null){
                 calc1 = 'ANS';
             }
             opValue = btn.value;
@@ -132,25 +135,36 @@ calcBtn.forEach(function(btn){
         else if(btn.value === 'delete'){
             return backspace();
         }
+        // Percent button pressed
+        else if(btn.value === '%'){
+            percent(btn.value);
+        }
     });
 });
 // Clear Calculator Function
 function clear(){
+    percentClicked1 = false;
+    percentClicked2 = false;
     calc1 = '';
     calc2 = '';
     calcContent.textContent = calc1 + calc2;
     pressed = false;
-    result = '';
+    result = null;
     num1 = 0;
     num2 = 0;
     resultContent.textContent = result;
 };
 // Equals Calculator Function
 function equals(){
-    if(pressed === false){
+    if(pressed === false && percentClicked1 === false){
         slicedNum1 = num1.substring(1);
         return resultContent.textContent = slicedNum1;
     }
+    else if(pressed === false && percentClicked1 === true){
+        return resultContent.textContent = num1;
+    }
+    percentClicked1 = false;
+    percentClicked2 = false;
     calc2 = '';
     pressed = false;
     result = operate(opValue, num1, num2);
@@ -173,5 +187,28 @@ function backspace(){
         let slicedNum2 = num2.slice(0,-1);
         num2 = slicedNum2;
         calcContent.textContent = calc1 + calc2;
+    }
+};
+function percent(value){
+    if(pressed === false && calc1 !== 'ANS' && percentClicked1 === false){
+            percentClicked1 = true;
+            num1 = num1 / 100;
+            calc1 += value;
+            calcContent.textContent = calc1;
+    }
+    else if(pressed === true && (opValue === 'x' || opValue === '/') && percentClicked2 === false){
+            percentClicked2 = true;
+            num2 = num2 / 100;
+            calc2 += value;
+            calcContent.textContent = calc1 + ' ' + calc2;
+    }
+    else if(pressed === true && (opValue === '+' || opValue === '-') && percentClicked2 === false){
+            percentClicked2 = true;
+            num2 = num1 * (num2/100);
+            calc2 += value;
+            calcContent.textContent = calc1 + ' ' + calc2;
+    }
+    else{
+        return;
     }
 };

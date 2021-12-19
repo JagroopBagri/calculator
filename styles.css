@@ -39,7 +39,7 @@ body{
     box-sizing: border-box;
     height: 40%;
     width: 95%;    
-    background-color:rgb(118, 131, 145);
+    background-color:rgb(108, 122, 138);
     border-radius: 5px;
 }
 /* Result box is 70% height of topBox*/
@@ -58,9 +58,9 @@ body{
 /* Final result number */
 .resultBox > div{
     font-size: 2.7rem;
-    color: whitesmoke;
+    color: rgb(17, 17, 17);
     font-style: normal;
-    background-color:rgb(118, 131, 145);
+    background-color:rgb(108, 122, 138);
 }
 /*calculationBox is 30% height of topBox*/
 .calculationBox{
@@ -80,8 +80,9 @@ body{
 }
 /* Targets calculation numbers*/
 .calc-wrapper > div{
-    color: rgb(170, 155, 135);
-    background-color:rgb(118, 131, 145);
+    color: rgb(46, 46, 46);
+    background-color:rgb(108, 122, 138);
+    font-weight: 540;
 }
 /* Box that will have all of the buttons for the calculator, takes 60%max-height of container */
 .bottomBox{
