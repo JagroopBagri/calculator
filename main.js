@@ -1,39 +1,4 @@
 
-// Adding, subtracting, multiplying, and dividing with arrays
-/*
-function addArr(array){
-    return array.reduce(function(sum, numbers){
-            sum += numbers
-            return sum;
-    }, 0);
-}
-
-function subtractArr(array){
-    return array.reduce(function(difference, numbers){
-            difference -= numbers
-            return difference;
-    });
-}
-
-function multiplyArr(array){
-    return array.reduce(function(product, numbers){
-            product *= numbers
-            return product;
-    });
-}
-
-function divideArr(array){
-    return array.reduce(function(quotient, numbers){
-        if(numbers === 0){
-            return 'undefined';
-        }
-        else{
-            quotient /= numbers
-            return quotient;
-        }
-    });
-}
-*/
 
 // Functions for adding, subtracting, multiplying, and dividing two numbers
 
@@ -87,8 +52,8 @@ let calc2 = '';
 calcContent.textContent = calc1 + calc2;
 calcBox.appendChild(calcContent);
 // Number 1 and 2
-let num1 = 0;
-let num2 = 0;
+let num1 = '0';
+let num2 = '0';
 // Has operator button been pressed
 let pressed = false;
 // Operator value
@@ -96,6 +61,9 @@ let opValue;
 // Is percent button clicked value
 let percentClicked1 = false;
 let percentClicked2 = false;
+// Is decimal point clicked
+let decimalClicked1 = false;
+let decimalClicked2 = false;
 // Array of buttons on Calculator
 const calcBtn = document.querySelectorAll('.calcbtn');
 // Event listener for each button on calculator
@@ -126,7 +94,7 @@ calcBtn.forEach(function(btn){
             calc1 += ' ' + btn.value;
             calcContent.textContent = calc1;
             pressed = true;
-        }
+            }
         // Equal sign pressed
         else if(btn.value === '='){
             return equals();
@@ -139,6 +107,10 @@ calcBtn.forEach(function(btn){
         else if(btn.value === '%'){
             percent(btn.value);
         }
+        // Decimal button pressed
+        else if(btn.value === '.'){
+            decimal(btn.value);
+        }
     });
 });
 // Clear Calculator Function
@@ -150,8 +122,10 @@ function clear(){
     calcContent.textContent = calc1 + calc2;
     pressed = false;
     result = null;
-    num1 = 0;
-    num2 = 0;
+    num1 = '0';
+    num2 = '0';
+    decimalClicked1 = false;
+    decimalClicked2 = false;
     resultContent.textContent = result;
 };
 // Equals Calculator Function
@@ -170,7 +144,9 @@ function equals(){
     result = operate(opValue, num1, num2);
     resultContent.textContent = result;
     num1 = result;
-    num2 = 0;
+    num2 = '0';
+    decimalClicked1 = false;
+    decimalClicked2 = false;
 };
 // Delete Calculator Function 
 function backspace(){
@@ -189,6 +165,7 @@ function backspace(){
         calcContent.textContent = calc1 + calc2;
     }
 };
+// Percent button function
 function percent(value){
     if(pressed === false && calc1 !== 'ANS' && percentClicked1 === false){
             percentClicked1 = true;
@@ -207,6 +184,24 @@ function percent(value){
             num2 = num1 * (num2/100);
             calc2 += value;
             calcContent.textContent = calc1 + ' ' + calc2;
+    }
+    else{
+        return;
+    }
+};
+// Decimal point button function
+function decimal(value){
+    if(pressed === false && calc1 !== 'ANS' && decimalClicked1 === false){
+        decimalClicked1 = true;
+        calc1 += value;
+        num1 += value;
+        calcContent.textContent = calc1;
+    }
+    else if(pressed === true && decimalClicked2 === false){
+        decimalClicked2 = true;
+        calc2 += value;
+        num2 += value;
+        calcContent.textContent = calc1 + ' ' + calc2;
     }
     else{
         return;

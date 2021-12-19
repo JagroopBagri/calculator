@@ -40,7 +40,7 @@ body{
     height: 40%;
     width: 95%;    
     background-color:rgb(108, 122, 138);
-    border-radius: 5px;
+    border-radius: 10px;
 }
 /* Result box is 70% height of topBox*/
 .resultBox{
@@ -60,7 +60,7 @@ body{
     font-size: 2.7rem;
     color: rgb(17, 17, 17);
     font-style: normal;
-    background-color:rgb(108, 122, 138);
+    background-color:transparent;
 }
 /*calculationBox is 30% height of topBox*/
 .calculationBox{
@@ -77,11 +77,12 @@ body{
 .calc-wrapper{
     display: flex;
     font-size: 1rem;
+    background-color: transparent;
 }
-/* Targets calculation numbers*/
+/* Calculation numbers*/
 .calc-wrapper > div{
     color: rgb(46, 46, 46);
-    background-color:rgb(108, 122, 138);
+    background-color: transparent;
     font-weight: 540;
 }
 /* Box that will have all of the buttons for the calculator, takes 60%max-height of container */
@@ -102,14 +103,14 @@ button{
     border-radius: 15px;
     height: 18%;
     width: 22%;
-    box-shadow: 0px -1px 3px rgb(139, 138, 138), 0px 3px 5px rgb(41, 41, 41);
+    box-shadow: 0px -1px 3px rgb(102, 101, 101), 0px 3px 5px rgb(41, 41, 41);
 }
 button:hover{
     background-color: rgb(30, 50, 64);
 }
 button:active{
     background-color: rgb(30, 50, 64);
-    box-shadow: 0px -1px 3px rgb(114, 114, 114), 0px 1px 5px rgb(24, 24, 24);
+    box-shadow: 0px -1px 3px rgb(95, 95, 95), 0px 1px 5px rgb(24, 24, 24);
     transform: translateY(1px);
 }
 /* equals button is bigger than the rest of the buttons and a diff color*/
