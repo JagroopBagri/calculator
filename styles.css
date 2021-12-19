@@ -10,8 +10,36 @@ body{
     height: 100vh;
     width: 100vw;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
+}
+h1{
+    align-self: flex-start;
+    background-color: transparent;
+    color: rgb(39, 58, 77);
+    font-size: 4.5vw;
+    font-weight: 550;
+    margin-left: 10vw;
+    margin-top: 10px;
+    border-bottom-style: solid;
+}
+footer{
+    margin-top: 10px;
+    width: 200px;
+    display: flex;
+    justify-content: space-around;
+}
+.footer{
+    align-self: center;
+}
+footer, p, a, img{
+    background-color: transparent;
+}
+.footer{
+    font-size: .8rem;
+    background-color: transparent;
+    color: black;
 }
 /* Calculator Size */
 .container{
@@ -30,6 +58,8 @@ body{
     max-height: 650px;
     max-width: 325px;
     border-radius: 20px;
+    align-self: flex-end;
+    margin-right: 20vw;
 }
 /* Box that will show results and calculations, takes 40%max-height of container */
 .topBox{
@@ -127,3 +157,12 @@ button:active{
 .multiply, .subtract, .add, .divide, .percent, .AC, .delete{
     color:rgb(250, 126, 24);
 }
+.fa-github {
+    color: black;
+    font-size: 24px;
+    transition: transform 0.2s ease-in-out;
+}
+    
+.fa-github:hover {
+    transform: rotate(360deg) scale(1.3);
+}  

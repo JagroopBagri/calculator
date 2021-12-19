@@ -56,7 +56,9 @@ let num1 = '0';
 let num2 = '0';
 // Has operator button been pressed
 let pressed = false;
-// Operator value
+// Has second number been input
+let num2Pressed = false;
+// Operator values
 let opValue;
 // Is percent button clicked value
 let percentClicked1 = false;
@@ -80,6 +82,7 @@ calcBtn.forEach(function(btn){
             num2 += btn.value
             calc2 += btn.value
             calcContent.textContent = calc1 + ' ' + calc2;
+            num2Pressed = true;
         }
         // Clear calculator
         else if(btn.value === 'AC'){
@@ -87,17 +90,25 @@ calcBtn.forEach(function(btn){
         }
         // Get operator
         else if((btn.value === '/' || btn.value === 'x' || btn.value === '+' || btn.value === '-') && (pressed === false)){
-            if(result !== null){
-                calc1 = 'ANS';
-            }
             opValue = btn.value;
             calc1 += ' ' + btn.value;
             calcContent.textContent = calc1;
             pressed = true;
+        }
+        // If operator is pressed again, proceed with calculation 
+        else if((btn.value === '/' || btn.value === 'x' || btn.value === '+' || btn.value === '-') && (pressed === true)){
+            if(num2Pressed === false){
+                return;
             }
+            equals();
+            opValue = btn.value;
+            calc1 += ' ' + btn.value;
+            calcContent.textContent = calc1;
+        }
         // Equal sign pressed
         else if(btn.value === '='){
-            return equals();
+            equals();
+            pressed = false;
         }
         // Delete button pressed
         else if(btn.value === 'delete'){
@@ -126,6 +137,7 @@ function clear(){
     num2 = '0';
     decimalClicked1 = false;
     decimalClicked2 = false;
+    num2Pressed = false;
     resultContent.textContent = result;
 };
 // Equals Calculator Function
@@ -140,13 +152,14 @@ function equals(){
     percentClicked1 = false;
     percentClicked2 = false;
     calc2 = '';
-    pressed = false;
     result = operate(opValue, num1, num2);
     resultContent.textContent = result;
     num1 = result;
     num2 = '0';
     decimalClicked1 = false;
     decimalClicked2 = false;
+    calc1 = 'ANS';
+    num2Pressed = false;
 };
 // Delete Calculator Function 
 function backspace(){
