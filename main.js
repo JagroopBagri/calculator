@@ -39,15 +39,15 @@ function divideArr(array){
 
 function add(x,y){
     let sum = x + y;
-    return sum.toFixed(2);
+    return +sum.toFixed(2);
 }
 function subtract(x,y){
     let difference = x - y;
-    return difference.toFixed(2);
+    return +difference.toFixed(2);
 }
 function multiply(x,y){
     let product = x * y;
-    return product.toFixed(2);
+    return +product.toFixed(2);
 }
 function divide(x,y){
     if(y === 0){
@@ -55,7 +55,7 @@ function divide(x,y){
     }
     else{
         let quotient = x/y;
-        return quotient.toFixed(2);
+        return +quotient.toFixed(2);
     }
 }
 // Function that uses one of the above functions based on which operand is input as a parameter
