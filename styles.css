@@ -22,6 +22,7 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    gap: 10px;
     height: 85%;
     width: 25%;
     min-height: 250px;
@@ -38,6 +39,8 @@ body{
     box-sizing: border-box;
     height: 40%;
     width: 95%;    
+    background-color:rgb(118, 131, 145);
+    border-radius: 5px;
 }
 /* Result box is 70% height of topBox*/
 .resultBox{
@@ -50,12 +53,14 @@ body{
     font-size: 3.5rem;
     overflow: auto;
     padding-right: 3px;
+    background-color: transparent;
 }
 /* Final result number */
 .resultBox > div{
     font-size: 2.7rem;
     color: whitesmoke;
     font-style: normal;
+    background-color:rgb(118, 131, 145);
 }
 /*calculationBox is 30% height of topBox*/
 .calculationBox{
@@ -66,6 +71,7 @@ body{
     width: 99%;
     overflow: auto;
     padding-right: 3px;
+    background-color: transparent;
 }
 /* wrapper for calculations, needed to make overflow work*/
 .calc-wrapper{
@@ -74,7 +80,8 @@ body{
 }
 /* Targets calculation numbers*/
 .calc-wrapper > div{
-    color: rgb(138, 136, 136);
+    color: rgb(170, 155, 135);
+    background-color:rgb(118, 131, 145);
 }
 /* Box that will have all of the buttons for the calculator, takes 60%max-height of container */
 .bottomBox{

@@ -93,8 +93,6 @@ let num2 = 0;
 let pressed = false;
 // Operator value
 let opValue;
-// Array of operator buttons
-const operatorBtns = ['/', '*', '-', '+'];
 // Array of buttons on Calculator
 const calcBtn = document.querySelectorAll('.calcbtn');
 // Event listener for each button on calculator
@@ -102,47 +100,78 @@ calcBtn.forEach(function(btn){
     btn.addEventListener('click', function(){
         // Get first number in Calculation
         if(isNaN(Number(btn.value)) === false && pressed === false && calc1 !== 'ANS'){
-            num1 += btn.value
-            calc1 += btn.value
+            num1 += btn.value;
+            calc1 += btn.value;
             calcContent.textContent = calc1;
         }
         // Get second number in calculation
         else if(isNaN(Number(btn.value)) === false && pressed === true){
             num2 += btn.value
             calc2 += btn.value
-            calcContent.textContent = calc1 + calc2;
+            calcContent.textContent = calc1 + ' ' + calc2;
         }
         // Clear calculator
         else if(btn.value === 'AC'){
-            calc1 = '';
-            calc2 = '';
-            calcContent.textContent = calc1 + calc2;
-            pressed = false;
-            result = '';
-            num1 = 0;
-            num2 = 0;
-            resultContent.textContent = result;
+            clear();
         }
         // Get operator
-        else if((btn.value === '/' || 'x' || '+' || '-') && (pressed === false)){
+        else if((btn.value === '/' || btn.value === 'x' || btn.value === '+' || btn.value === '-') && (pressed === false)){
             if(Number(result) !== 0){
                 calc1 = 'ANS';
             }
             opValue = btn.value;
-            calc1 += btn.value;
+            calc1 += ' ' + btn.value;
             calcContent.textContent = calc1;
             pressed = true;
         }
+        // Equal sign pressed
         else if(btn.value === '='){
-            calc2 = '';
-            pressed = false;
-            console.log(num1);
-            console.log(num2);
-            result = operate(opValue, num1, num2);
-            resultContent.textContent = result;
-            num1 = result;
-            num2 = 0;
+            return equals();
+        }
+        // Delete button pressed
+        else if(btn.value === 'delete'){
+            return backspace();
         }
     });
 });
-
+// Clear Calculator Function
+function clear(){
+    calc1 = '';
+    calc2 = '';
+    calcContent.textContent = calc1 + calc2;
+    pressed = false;
+    result = '';
+    num1 = 0;
+    num2 = 0;
+    resultContent.textContent = result;
+};
+// Equals Calculator Function
+function equals(){
+    if(pressed === false){
+        slicedNum1 = num1.substring(1);
+        return resultContent.textContent = slicedNum1;
+    }
+    calc2 = '';
+    pressed = false;
+    result = operate(opValue, num1, num2);
+    resultContent.textContent = result;
+    num1 = result;
+    num2 = 0;
+};
+// Delete Calculator Function 
+function backspace(){
+    if(pressed === false && calc1 !== 'ANS' && calc1 !== ''){
+        let slicedString = calc1.slice(0,-1);
+        calc1 = slicedString;
+        let slicedNum = num1.slice(0,-1);
+        num1 = slicedNum;
+        calcContent.textContent = calc1;
+    }
+    else if(pressed === true && calc2 !== ''){
+        let slicedString2 = calc2.slice(0,-1);
+        calc2 = slicedString2;
+        let slicedNum2 = num2.slice(0,-1);
+        num2 = slicedNum2;
+        calcContent.textContent = calc1 + calc2;
+    }
+};
