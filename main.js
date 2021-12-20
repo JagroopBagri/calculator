@@ -75,13 +75,13 @@ console.log(calcBtn);
 calcBtn.forEach(function(btn){
     btn.addEventListener('click', function(){
         // Get first number in Calculation
-        if(isNaN(Number(btn.value)) === false && pressed === false && calc1 !== 'ANS'){
+        if(isNaN(Number(btn.value)) === false && pressed === false && calc1 !== 'ANS' && (num1.toString().length < 18)){
             num1 += btn.value;
             calc1 += btn.value;
             calcContent.textContent = calc1;
         }
         // Get second number in calculation
-        else if(isNaN(Number(btn.value)) === false && pressed === true){
+        else if(isNaN(Number(btn.value)) === false && pressed === true && (num2.toString().length < 18)){
             num2 += btn.value
             calc2 += btn.value
             calcContent.textContent = calc1 + ' ' + calc2;
@@ -219,6 +219,10 @@ function equals(){
     percentClicked2 = false;
     calc2 = '';
     result = operate(opValue, num1, num2);
+    resultString = result.toString();
+    if(resultString.length > 10){
+        result = result.toExponential(3);
+    }
     resultContent.textContent = result;
     num1 = result;
     num2 = '0';
