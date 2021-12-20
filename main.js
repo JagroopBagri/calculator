@@ -185,6 +185,9 @@ body.addEventListener('keydown', function(event){
     }else if (event.code === 'Equal' || event.code === 'Enter'){
         event.preventDefault();
         calcBtn[18].click();
+    }else if (event.code === 'Period'){
+        event.preventDefault();
+        calcBtn[17].click();
     }
 })
 // Clear Calculator Function
@@ -283,3 +286,7 @@ function decimal(value){
         return;
     }
 };
+// Insert footer with updating year
+const footer = document.querySelector('.footer')
+const currentYear = new Date().getFullYear();
+footer.textContent = 'Copyright © ' + currentYear + ' Jagroop Bagri'
