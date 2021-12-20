@@ -210,6 +210,9 @@ function clear(){
 function equals(){
     if(pressed === false && percentClicked1 === false){
         slicedNum1 = num1.substring(1);
+        if(slicedNum1.length > 10){
+            return resultContent.textContent = Number(slicedNum1).toExponential(3);
+        }
         return resultContent.textContent = slicedNum1;
     }
     else if(pressed === false && percentClicked1 === true){
