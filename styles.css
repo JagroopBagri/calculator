@@ -3,7 +3,7 @@
     padding: 0;
     color: white;
     background-color: rgb(39, 58, 77);
-    font-family::Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
 }
 body{
     background-color: blanchedalmond;
@@ -14,15 +14,39 @@ body{
     align-items: center;
     justify-content: space-evenly;
 }
+.content{
+    background-color: blanchedalmond;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.left-side{
+    padding: 4px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+    height: 85%;
+    width: 25%;
+    min-height: 250px;
+    min-width: 200px;
+    max-height: 650px;
+    max-width: 325px;
+    align-self: flex-end;
+}
+.instruction-box{
+    border-style: solid;
+    border-color: turquoise;
+
+}
 h1{
-    align-self: flex-start;
     background-color: transparent;
-    color: rgb(39, 58, 77);
-    font-size: 4.5vw;
-    font-weight: 550;
-    margin-left: 10vw;
-    margin-top: 10px;
-    border-bottom-style: solid;
+    
 }
 footer{
     margin-top: 10px;

@@ -4,15 +4,15 @@
 
 function add(x,y){
     let sum = x + y;
-    return +sum.toFixed(2);
+    return +sum.toFixed(4);
 }
 function subtract(x,y){
     let difference = x - y;
-    return +difference.toFixed(2);
+    return +difference.toFixed(4);
 }
 function multiply(x,y){
     let product = x * y;
-    return +product.toFixed(2);
+    return +product.toFixed(4);
 }
 function divide(x,y){
     if(y === 0){
@@ -20,7 +20,7 @@ function divide(x,y){
     }
     else{
         let quotient = x/y;
-        return +quotient.toFixed(2);
+        return +quotient.toFixed(4);
     }
 }
 // Function that uses one of the above functions based on which operand is input as a parameter
@@ -38,6 +38,8 @@ function operate(operator, num1, num2){
         return divide(Number(num1), Number(num2))
     }
 }
+// Body of page
+const body = document.body;
 // Result Box with result content and final result
 const resultBox = document.querySelector('.resultBox');
 const resultContent = document.createElement('div');
@@ -68,6 +70,7 @@ let decimalClicked1 = false;
 let decimalClicked2 = false;
 // Array of buttons on Calculator
 const calcBtn = document.querySelectorAll('.calcbtn');
+console.log(calcBtn);
 // Event listener for each button on calculator
 calcBtn.forEach(function(btn){
     btn.addEventListener('click', function(){
@@ -124,6 +127,66 @@ calcBtn.forEach(function(btn){
         }
     });
 });
+// Adding Keyboard functionality
+body.addEventListener('keydown', function(event){
+    if(event.code === 'Digit1'){
+        event.preventDefault();
+        calcBtn[12].click();
+    }
+    else if (event.code === 'Digit2'){
+        event.preventDefault();
+        calcBtn[13].click();
+    }
+    else if (event.code === 'Digit3'){
+        event.preventDefault();
+        calcBtn[14].click();
+    }else if (event.code === 'Digit4'){
+        event.preventDefault();
+        calcBtn[8].click();
+    }else if (event.code === 'Digit5'){
+        event.preventDefault();
+        calcBtn[9].click();
+    }else if (event.code === 'Digit6'){
+        event.preventDefault();
+        calcBtn[10].click();
+    }else if (event.code === 'Digit7'){
+        event.preventDefault();
+        calcBtn[4].click();
+    }else if (event.code === 'Digit8'){
+        event.preventDefault();
+        calcBtn[5].click();
+    }else if (event.code === 'Digit9'){
+        event.preventDefault();
+        calcBtn[6].click();
+    }else if (event.code === 'Digit0'){
+        event.preventDefault();
+        calcBtn[16].click();
+    }else if (event.code === 'KeyM' || event.code === 'KeyX'){
+        event.preventDefault();
+        calcBtn[7].click();
+    }else if (event.code === 'KeyA'){
+        event.preventDefault();
+        calcBtn[15].click();
+    }else if (event.code === 'KeyS'){
+        event.preventDefault();
+        calcBtn[11].click();
+    }else if (event.code === 'KeyD' || event.code === 'Slash'){
+        event.preventDefault();
+        calcBtn[3].click();
+    }else if (event.code === 'KeyP'){
+        event.preventDefault();
+        calcBtn[2].click();
+    }else if (event.code === 'Backspace'){
+        event.preventDefault();
+        calcBtn[1].click();
+    }else if (event.code === 'Escape'){
+        event.preventDefault();
+        calcBtn[0].click();
+    }else if (event.code === 'Equal' || event.code === 'Enter'){
+        event.preventDefault();
+        calcBtn[18].click();
+    }
+})
 // Clear Calculator Function
 function clear(){
     percentClicked1 = false;
